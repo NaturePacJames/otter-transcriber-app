@@ -29,7 +29,7 @@ recordButton.addEventListener("click", async () => {
         console.log("Audio stopped, preparing to send...");
         try {
             console.log("Sending audio to backend...");  // Debug log before sending
-            const response = await fetch("http://localhost:5000/transcribe", {
+            const response = await fetch("https://otter-transcriber-app-1.onrender.com", {
                 method: "POST",
                 body: formData,
             });
