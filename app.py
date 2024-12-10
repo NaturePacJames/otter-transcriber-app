@@ -5,7 +5,7 @@ import azure.cognitiveservices.speech as speechsdk
 import subprocess
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app)
 
 # Function to transcribe audio using Azure Speech Services
 def transcribe_audio(audio_file):
@@ -39,8 +39,8 @@ def transcribe_audio(audio_file):
 @app.route("/transcribe", methods=["POST", "OPTIONS"])
 def transcribe():
     if request.method == "OPTIONS":
-        # Just respond with an OK and CORS headers (Flask-Cors should handle headers automatically)
-        return jsonify({}), 200
+        # Return an empty 200 OK response for the preflight request
+        return '', 200
     
     if "file" not in request.files:
         return jsonify({"error": "No file provided"}), 400
