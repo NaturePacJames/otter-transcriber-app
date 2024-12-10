@@ -32,6 +32,9 @@ recordButton.addEventListener("click", async () => {
             const response = await fetch("https://otter-transcriber-app-1.onrender.com", {
                 method: "POST",
                 body: formData,
+                headers: {
+                    "Accept": "application/json"
+                }
             });
 
             console.log("Response received from backend:", response);  // Debug log for the response object

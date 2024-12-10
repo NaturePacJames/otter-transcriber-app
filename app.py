@@ -38,6 +38,10 @@ def transcribe_audio(audio_file):
 # Flask endpoint to handle audio file uploads and transcribe them
 @app.route("/transcribe", methods=["POST", "OPTIONS"])
 def transcribe():
+    if request.method == "OPTIONS":
+        # Just respond with an OK and CORS headers (Flask-Cors should handle headers automatically)
+        return jsonify({}), 200
+    
     if "file" not in request.files:
         return jsonify({"error": "No file provided"}), 400
     
