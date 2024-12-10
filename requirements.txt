@@ -1,0 +1,5 @@
+Flask
+Flask-Cors
+azure-cognitiveservices-speech==1.21.0
+ffmpeg
+gunicorn
