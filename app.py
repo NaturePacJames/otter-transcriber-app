@@ -5,7 +5,7 @@ import azure.cognitiveservices.speech as speechsdk
 import subprocess
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Function to transcribe audio using Azure Speech Services
 def transcribe_audio(audio_file):
