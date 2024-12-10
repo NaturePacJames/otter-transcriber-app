@@ -36,7 +36,7 @@ def transcribe_audio(audio_file):
         return "Error in transcription."
 
 # Flask endpoint to handle audio file uploads and transcribe them
-@app.route("/transcribe", methods=["POST"])
+@app.route("/transcribe", methods=["POST", "OPTIONS"])
 def transcribe():
     if "file" not in request.files:
         return jsonify({"error": "No file provided"}), 400
